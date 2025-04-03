@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-
+//백준 1259번
 public class problem1259 {
     public static void main(String[] args) throws IOException{
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
