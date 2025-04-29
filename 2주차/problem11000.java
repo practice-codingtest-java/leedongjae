@@ -29,5 +29,6 @@ public class problem11000 {
             classes.offer(arr[1]);
         }
         System.out.println(classes.size());
+        
     }
 }
