@@ -31,12 +31,12 @@ public class problem1012 {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
                     if (map[i][j] == 1 && !visited[i][j]) {
-                        Queue<int[]> queue = new LinkedList<>();
-                        queue.offer(new int[]{i, j});
+                        Queue<int[]> q = new LinkedList<>();
+                        q.offer(new int[]{i, j});
                         visited[i][j] = true;
 
-                        while (!queue.isEmpty()) {
-                            int[] now = queue.poll();
+                        while (!q.isEmpty()) {
+                            int[] now = q.poll();
                             int x = now[0];
                             int y = now[1];
 
@@ -47,7 +47,7 @@ public class problem1012 {
                                 if (nx >= 0 && ny >= 0 && nx < n && ny < m) {
                                     if (map[nx][ny] == 1 && !visited[nx][ny]) {
                                         visited[nx][ny] = true;
-                                        queue.offer(new int[]{nx, ny});
+                                        q.offer(new int[]{nx, ny});
                                     }
                                 }
                             }
