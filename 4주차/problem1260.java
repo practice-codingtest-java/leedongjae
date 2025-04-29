@@ -51,18 +51,18 @@ public class problem1260 {
     }
 
     static void bfs(int start, ArrayList<ArrayList<Integer>> graph, boolean[] visited, StringBuilder sb) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.offer(start);
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(start);
         visited[start] = true;
 
         while (!queue.isEmpty()) {
-            int node = queue.poll();
+            int node = q.poll();
             sb.append(node).append(" ");
 
             for (int next : graph.get(node)) {
                 if (!visited[next]) {
                     visited[next] = true;
-                    queue.offer(next);
+                    q.offer(next);
                 }
             }
         }
