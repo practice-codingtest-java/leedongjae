@@ -4,8 +4,8 @@ public class problem4179 {
     static int[][] fire,man;
     static char[][] map;
     static int R,C;
-    static int[] dx={0,0,-1,1};
-    static int[] dy={-1,1,0,0};
+    static int[] dx={-1,1,0,0};
+    static int[] dy={0,0,-1,1};
     public static void main(String[] args) throws IOException{
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st=new StringTokenizer(br.readLine());
@@ -36,34 +36,34 @@ public class problem4179 {
         }
         while(!fq.isEmpty()){
             int[] now=fq.poll();
-            int y=now[0];
-            int x=now[1];
+            int x=now[0];
+            int y=now[1];
             for(int i=0;i<4;i++){
                 int ny=y+dy[i];
                 int nx=x+dx[i];
-                if(ny<0||ny>=R||nx<0||nx>=C)
+                if(nx<0||nx>=R||ny<0||ny>=C)
                     continue;
-                if(fire[ny][nx]!=-1||map[ny][nx]=='#') continue;
-                fire[ny][nx]=fire[y][x]+1;
-                fq.offer(new int[]{ny,nx});
+                if(fire[nx][ny]!=-1||map[nx][ny]=='#') continue;
+                fire[nx][ny]=fire[x][y]+1;
+                fq.offer(new int[]{nx,ny});
             }
         }
         while(!mq.isEmpty()){
             int[] now=mq.poll();
-            int y=now[0];
-            int x=now[1];
-            if(y==0||y==R-1||x==0||x==C-1){
-                System.out.println(man[y][x]+1);
+            int x=now[0];
+            int y=now[1];
+            if(x==0||x==R-1||y==0||y==C-1){
+                System.out.println(man[x][y]+1);
                 return;
             }
             for(int i=0;i<4;i++){
                 int ny=y+dy[i];
                 int nx=x+dx[i];
-                if(ny<0||ny>=R||nx<0||nx>=C) continue;
-                if(man[ny][nx]!=-1||map[ny][nx]=='#') continue;
-                if(fire[ny][nx]!=-1&&fire[ny][nx]<=man[y][x]+1) continue;
-                man[ny][nx]=man[y][x]+1;
-                mq.offer(new int[]{ny,nx});
+                if(nx<0||nx>=R||ny<0||ny>=C) continue;
+                if(man[nx][ny]!=-1||map[nx][ny]=='#') continue;
+                if(fire[nx][ny]!=-1&&fire[nx][ny]<=man[x][y]+1) continue;
+                man[nx][ny]=man[x][y]+1;
+                mq.offer(new int[]{nx,ny});
             }
         }
         System.out.println("IMPOSSIBLE");
