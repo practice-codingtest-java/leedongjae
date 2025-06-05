@@ -55,7 +55,7 @@ public class problem1260 {
         q.offer(start);
         visited[start] = true;
 
-        while (!queue.isEmpty()) {
+        while (!q.isEmpty()) {
             int node = q.poll();
             sb.append(node).append(" ");
 

@@ -36,7 +36,7 @@ public class problem11725 {
         q.offer(start);
         visited[start] = true;
 
-        while (!queue.isEmpty()) {
+        while (!q.isEmpty()) {
             int node = q.poll();
 
             for (int next : graph.get(node)) {
